@@ -236,7 +236,7 @@
         var loc = s.city + (s.state ? ', ' + s.state : '');
         var d1 = fmtDate(s.start_date);
         var d2 = s.end_date ? fmtDate(s.end_date).replace(/^\w+\s+/,'') : '';
-        showEventPill('Next event: ' + loc + ' · ' + d1 + (d2 ? '–' + d2 : ''));
+        showEventPill('LIVE EVENT: ' + loc + ' · ' + d1 + (d2 ? '–' + d2 : ''));
       }
       buildForm(s.form_id || FALLBACK_FORM_ID);
       setShare('ig', s.ig_reel_url);
