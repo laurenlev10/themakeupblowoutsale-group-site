@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monthly Deals — The Makeup Blowout Sale</title>
+<meta name="description" content="Scan, swipe, save! Our hottest monthly beauty deals — only at our pop-up event.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Monthly Deals — Pop-Up Beauty Event">
+<meta property="og:description" content="Scan, swipe, save! Our hottest monthly beauty deals.">
+<meta property="og:image" content="assets/hero.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/hero.jpeg">
+<link rel="preload" as="image" href="assets/kim-kimble-blow-dryer.gif">
+<link rel="preload" as="image" href="assets/beachwaver.gif">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pop-yellow: oklch(90% .2 95);
+  --pop-blue:   oklch(65% .22 240);
+  --pop-pink:   oklch(78% .2 350);
+  --pop-red:    oklch(62% .28 25);
+  --ink: #12080b;
+}
+@supports not (color: oklch(0% 0 0)){
+  :root{
+    --pop-yellow: #ffd84b;
+    --pop-blue:   #4aa6ff;
+    --pop-pink:   #ff7ab3;
+    --pop-red:    #ff2e3e;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: "Archivo Black", "Bebas Neue", Impact, sans-serif;
+  color: var(--ink);
+  background-color: #59d6fa;
+  background-image:
+    radial-gradient(#ffd8e9 2px, transparent 2.5px),
+    radial-gradient(#9be4fc 2px, transparent 2.5px);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px, 50px 50px;
+  -webkit-font-smoothing: antialiased;
+}
+img{display:block; max-width:100%; height:auto}
+main{ min-height: 100vh; padding: 32px 16px; }
+@media (min-width: 768px){ main{ padding: 56px 16px; } }
+header.hero{ max-width: 64rem; margin: 0 auto; text-align: center; }
+section.grid{
+  max-width: 72rem; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr; gap: 32px;
+}
+@media (min-width: 640px){ section.grid{ grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px){ section.grid{ grid-template-columns: 1fr 1fr 1fr; } }
+footer.cta{ max-width: 48rem; margin: 64px auto 0; text-align: center; }
+@media (min-width: 768px){ footer.cta{ margin-top: 96px; } }
+
+.pop-border{ border: 4px solid var(--ink); }
+.pop-shadow{ box-shadow: 8px 8px 0 var(--ink); }
+.halftone{
+  height: 32px; max-width: 64rem; margin: 48px auto; opacity: .4;
+  background-image: radial-gradient(var(--ink) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+
+.hero-img{ margin-bottom: 24px; background: #fff; overflow: hidden; transform: rotate(-1deg); }
+.hero-img img{ width:100%; height:auto; display:block; }
+
+.eyebrow{
+  display: inline-block; background: var(--pop-yellow);
+  padding: 8px 20px; transform: rotate(-3deg); margin-bottom: 24px;
+  font-size: .9rem; letter-spacing: .2em;
+}
+@media (min-width: 768px){ .eyebrow{ font-size: 1rem; } }
+
+h1.title{
+  margin: 0; font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(3rem, 12vw, 8rem); line-height: .9;
+  letter-spacing: -.02em; text-transform: uppercase;
+  color: var(--pop-red); -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--ink), 12px 12px 0 var(--pop-blue);
+}
+
+.scan-card{
+  display: inline-block; margin-top: 32px; background: #fff;
+  padding: 16px 24px; transform: rotate(2deg); max-width: 32rem;
+}
+.scan-card p{
+  margin: 0; font-size: 1.1rem; text-transform: uppercase;
+  font-family: "Bebas Neue", "Archivo Black", sans-serif; letter-spacing: .03em;
+}
+@media (min-width: 768px){ .scan-card p{ font-size: 1.5rem; } }
+.scan-card .accent{ color: var(--pop-red); }
+
+.zaps{ margin-top: 24px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.zaps span{
+  display: inline-block; background: #fff; padding: 4px 14px;
+  font-size: 1rem; letter-spacing: .04em;
+  animation: wiggle 3s ease-in-out infinite; border: 4px solid var(--ink);
+}
+@media (min-width: 768px){ .zaps span{ font-size: 1.1rem; } }
+.zaps span:nth-child(1){ transform: rotate(-1deg); animation-delay: 0s; }
+.zaps span:nth-child(2){ transform: rotate(2deg);  animation-delay: .2s; }
+.zaps span:nth-child(3){ transform: rotate(-3deg); animation-delay: .4s; }
+.zaps span:nth-child(4){ transform: rotate(4deg);  animation-delay: .6s; }
+
+@keyframes wiggle{
+  0%,100% { transform: rotate(-1deg); }
+  50%     { transform: rotate(1deg);  }
+}
+
+.card{
+  position: relative; background: #fff; overflow: hidden;
+  border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink);
+}
+.card.tilt-l{ transform: rotate(-0.8deg); }
+.card.tilt-r{ transform: rotate(0.8deg); }
+.card-badge{
+  position: absolute; top: -12px; right: -12px; z-index: 10;
+  width: 80px; height: 80px; border-radius: 9999px;
+  border: 4px solid var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  text-transform: uppercase; font-size: .95rem;
+  font-family: "Archivo Black", Impact, sans-serif;
+  transform: rotate(12deg); text-align: center;
+}
+.card-img{ aspect-ratio: 1 / 1; background: #000; overflow: hidden; }
+.card-img img{ width: 100%; height: 100%; object-fit: cover; }
+.card-foot{ padding: 16px; border-top: 4px solid var(--ink); }
+.card-foot h2{
+  margin: 0; font-size: 1.15rem; line-height: 1.1;
+  text-transform: uppercase; font-family: "Archivo Black", Impact, sans-serif;
+}
+@media (min-width: 768px){ .card-foot h2{ font-size: 1.35rem; } }
+.card-foot .deal{
+  margin: 10px 0 0; font-size: 1.6rem; text-transform: uppercase;
+  color: #fff; -webkit-text-stroke: 1px var(--ink);
+  text-shadow: 3px 3px 0 var(--ink);
+  font-family: "Archivo Black", Impact, sans-serif;
+}
+@media (min-width: 768px){ .card-foot .deal{ font-size: 2rem; } }
+
+.bg-pop-pink   { background: var(--pop-pink);   }
+.bg-pop-yellow { background: var(--pop-yellow); }
+.bg-pop-blue   { background: var(--pop-blue);   }
+.bg-pop-red    { background: var(--pop-red);    }
+
+.cta-card{
+  display: inline-block; background: var(--pop-pink);
+  padding: 24px 32px; transform: rotate(-1deg);
+  border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink);
+}
+.cta-card .grab{
+  margin: 0; font-size: 1.5rem; line-height: 1.05;
+  text-transform: uppercase; font-family: "Archivo Black", Impact, sans-serif;
+}
+@media (min-width: 768px){ .cta-card .grab{ font-size: 2.5rem; } }
+.cta-card .only{ margin: 12px 0 0; font-size: .85rem; letter-spacing: .2em; }
+@media (min-width: 768px){ .cta-card .only{ font-size: 1rem; } }
+</style>
+</head>
+<body>
+<main>
+
+  <header class="hero">
+    <div class="hero-img pop-border pop-shadow">
+      <img src="assets/hero.jpeg" alt="Pop art beauty illustration with WOW speech bubble">
+    </div>
+
+    <div class="eyebrow pop-border pop-shadow">★ POP-UP EXCLUSIVE ★</div>
+
+    <h1 class="title">Monthly<br>Deals!</h1>
+
+    <div class="scan-card pop-border pop-shadow">
+      <p>You scanned the code — <span class="accent">here's the goods.</span></p>
+    </div>
+
+    <div class="zaps">
+      <span>POW!</span>
+      <span>WOW!</span>
+      <span>BAM!</span>
+      <span>ZAP!</span>
+    </div>
+  </header>
+
+  <div class="halftone"></div>
+
+  <section class="grid">
+
+    <article class="card tilt-l">
+      <div class="card-badge bg-pop-pink">POW!</div>
+      <div class="card-img"><img src="assets/kim-kimble-blow-dryer.gif" alt="Kim Kimble Hybrid Blow Dryer"></div>
+      <div class="card-foot bg-pop-pink">
+        <h2>Kim Kimble Hybrid Blow Dryer</h2>
+        <p class="deal">HOT DEAL</p>
+      </div>
+    </article>
+
+    <article class="card tilt-r">
+      <div class="card-badge bg-pop-yellow">WOW!</div>
+      <div class="card-img"><img src="assets/beachwaver.gif" alt="Beachwaver"></div>
+      <div class="card-foot bg-pop-yellow">
+        <h2>Beachwaver</h2>
+        <p class="deal">STEAL</p>
+      </div>
+    </article>
+
+    <article class="card tilt-l">
+      <div class="card-badge bg-pop-blue">BAM!</div>
+      <div class="card-img"><img src="assets/splashed-liner.gif" alt="Splashed Liner Kit"></div>
+      <div class="card-foot bg-pop-blue">
+        <h2>Splashed Liner Kit</h2>
+        <p class="deal">MUST GRAB</p>
+      </div>
+    </article>
+
+    <article class="card tilt-r">
+      <div class="card-badge bg-pop-pink">ZAP!</div>
+      <div class="card-img"><img src="assets/keys-aura-mist.gif" alt="Keys Reviving Aura Mist"></div>
+      <div class="card-foot bg-pop-pink">
+        <h2>Keys Reviving Aura Mist</h2>
+        <p class="deal">GLOW UP</p>
+      </div>
+    </article>
+
+    <article class="card tilt-l">
+      <div class="card-badge bg-pop-yellow">POP!</div>
+      <div class="card-img"><img src="assets/glitter-gel.gif" alt="Glitter Gel"></div>
+      <div class="card-foot bg-pop-yellow">
+        <h2>Glitter Gel</h2>
+        <p class="deal">SPARKLE</p>
+      </div>
+    </article>
+
+    <article class="card tilt-r">
+      <div class="card-badge bg-pop-red">MWAH!</div>
+      <div class="card-img"><img src="assets/rose-lipgloss.gif" alt="Rose Lipgloss"></div>
+      <div class="card-foot bg-pop-red">
+        <h2>Rose Lipgloss</h2>
+        <p class="deal">KISS THIS</p>
+      </div>
+    </article>
+
+    <article class="card tilt-l">
+      <div class="card-badge bg-pop-blue">WHOA!</div>
+      <div class="card-img"><img src="assets/eyeshadow-palette.png" alt="Beauty Creations Eyeshadow Palette"></div>
+      <div class="card-foot bg-pop-blue">
+        <h2>Beauty Creations Eyeshadow Palette</h2>
+        <p class="deal">ONLY $3</p>
+      </div>
+    </article>
+
+  </section>
+
+  <footer class="cta">
+    <div class="cta-card">
+      <p class="grab">Grab 'em<br>before they're gone!</p>
+      <p class="only">★ ONLY AT THE POP-UP ★</p>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
