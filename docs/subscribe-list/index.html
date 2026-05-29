@@ -44,6 +44,9 @@
     .share-buttons { display: flex; flex-direction: column; gap: 12px; max-width: 440px; margin: 0 auto; }
     .share-btn { display: flex; align-items: center; justify-content: center; gap: 10px; color: #fff !important; font-size: 17px; font-weight: 700; padding: 15px 24px; border-radius: 8px; text-decoration: none; transition: transform .15s, box-shadow .15s; }
     .share-btn:hover { transform: translateY(-2px); }
+    /* Inert state while subscribe_target.json loads (or if it fails). Prevents the IRON RULE #5
+       regression of 2026-05-28: buttons must NEVER fall back to the brand-profile URL. */
+    .share-btn[data-pending="1"] { opacity: 0.55; cursor: progress; pointer-events: none; filter: grayscale(0.4); }
     .share-ig { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
     .share-fb { background: #1877f2; }
     .share-tt { background: #000; border: 2px solid #fff; }
@@ -80,9 +83,9 @@
     <h3>&#x1F4F2; Share &amp; Get an Extra Surprise!</h3>
     <p class="share-sub">Share the event Reel and bring a friend &mdash; you both get a bonus gift at the event!</p>
     <div class="share-buttons">
-      <a id="share-ig" class="share-btn share-ig" href="https://www.instagram.com/themakeupblowoutsale/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> SHARE on Instagram</a>
-      <a id="share-fb" class="share-btn share-fb" href="https://www.facebook.com/themakeupblowoutsale/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i> SHARE on Facebook</a>
-      <a id="share-tt" class="share-btn share-tt" href="https://www.tiktok.com/@makeupblowoutsale" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> SHARE on TikTok</a>
+      <a id="share-ig" class="share-btn share-ig" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> <span class="share-label">Loading event Reel&hellip;</span></a>
+      <a id="share-fb" class="share-btn share-fb" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i> <span class="share-label">Loading event Reel&hellip;</span></a>
+      <a id="share-tt" class="share-btn share-tt" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> <span class="share-label">Loading event Reel&hellip;</span></a>
     </div>
   </section>
 
@@ -215,9 +218,18 @@
     }
 
     function setShare(idSuffix, url){
-      if (!url) return;
+      // IRON RULE #5: if url is empty/missing, leave the button INERT — do NOT fall back to
+      // the brand profile URL. Better to show a visibly-disabled button than to silently
+      // send users to instagram.com/themakeupblowoutsale/ instead of the event Reel.
       var a = document.getElementById('share-' + idSuffix);
-      if (a) a.href = url;
+      if (!a) return;
+      if (!url) return;
+      a.href = url;
+      a.removeAttribute('data-pending');
+      a.removeAttribute('aria-disabled');
+      var labels = { 'ig':'SHARE on Instagram', 'fb':'SHARE on Facebook', 'tt':'SHARE on TikTok' };
+      var span = a.querySelector('.share-label');
+      if (span) span.textContent = labels[idSuffix] || 'SHARE';
     }
     function fmtDate(s){
       try {
