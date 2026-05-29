@@ -225,6 +225,7 @@
     .st-font-caption a { color: var(--ink); text-decoration: underline; }
     .st-hidden { display: none; }
     .st-color-red { color: #fff; background: var(--pop-red); border: 2px solid var(--ink); padding: 4px 8px; font-size: .8rem; text-align: center; margin-top: 4px; font-family: "Bebas Neue", sans-serif; letter-spacing: .05em; }
+    .st-color-red:empty { display: none; padding: 0; border: 0; margin: 0; }
     .st-signupform-validation-error { background: var(--pop-yellow) !important; }
     .step2-singleOptIn p {
       color: var(--ink);
@@ -417,7 +418,7 @@
         +     '<p class="st-signupform-terms-agreed-error st-color-red st-hidden">Please agree to terms to continue.</p>'
         +     '<div class="st-join-web-form-submit-button-box">'
         +       '<input type="submit" value="✉️ TEXT ME MY VOUCHER" name="subscribe">'
-        +       '<p class="st-signupform-server-error-message st-color-red">&nbsp;</p>'
+        +       '<p class="st-signupform-server-error-message st-color-red"></p>'
         +     '</div>'
         +   '</div>'
         +   '<div class="step2-singleOptIn st-hidden">'
