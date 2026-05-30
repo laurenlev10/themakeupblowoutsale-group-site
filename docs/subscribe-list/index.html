@@ -3,392 +3,357 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Makeup Blowout Sale Group — Free Eyeshadow</title>
-  <meta name="description" content="Subscribe and get your free eyeshadow at The Makeup Blowout Sale event!">
-  <meta property="og:title" content="The Makeup Blowout Sale Group">
-  <meta property="og:description" content="Sign up to claim your free eyeshadow at the event!">
+  <title>Free Eyeshadow — Register at the Event</title>
+  <meta name="description" content="Scan, sign up in 5 seconds, and grab your FREE eyeshadow at the event. Share the reel to unlock a bonus glitter liner.">
+  <meta property="og:title" content="Free Eyeshadow — Register at the Event">
+  <meta property="og:description" content="Scan, sign up in 5 seconds, and grab your FREE eyeshadow at the event. Share the reel to unlock a bonus glitter liner.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.themakeupblowoutsale-group.com/subscribe-list">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
 
   <style>
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       Pop-art design system — matches BEST SELLERS deals page
+       Pop-art neo-brutalist design — 1:1 recreation of the Lovable "Sparkle & Shine" page
+       Logic (SimpleTexting form, subscribe_target rotation, IRON RULE #5 share buttons,
+       gtag events) is preserved verbatim from the previous version.
        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     :root{
-      --pop-yellow: oklch(90% .2 95);
-      --pop-blue:   oklch(65% .22 240);
-      --pop-pink:   oklch(78% .2 350);
-      --pop-red:    oklch(62% .28 25);
-      --ink:        #12080b;
-    }
-    @supports not (color: oklch(0% 0 0)){
-      :root{ --pop-yellow:#ffd84b; --pop-blue:#4aa6ff; --pop-pink:#ff7ab3; --pop-red:#ff2e3e; }
+      --cream:   #FCF7E7;
+      --ink:     #0A0E1A;
+      --pink:    #F944AC;
+      --green:   #7CEF83;
+      --blue:    #76DBF3;
+      --yellow:  #FFE24A;
+      --magenta: #E1306C;
+      --dot:     #F7C9DE;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { margin: 0; padding: 0; }
     body {
-      font-family: "Archivo Black", "Bebas Neue", Impact, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
       color: var(--ink);
-      background-color: #59d6fa;
-      background-image:
-        radial-gradient(#ffd8e9 2px, transparent 2.5px),
-        radial-gradient(#9be4fc 2px, transparent 2.5px);
-      background-position: 0 0, 25px 25px;
-      background-size: 50px 50px, 50px 50px;
+      background-color: var(--cream);
+      background-image: radial-gradient(var(--dot) 1.7px, transparent 1.9px);
+      background-size: 22px 22px;
+      background-position: 0 0;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
+      line-height: 1.5;
     }
     img { display: block; max-width: 100%; height: auto; }
 
-    .pop-border { border: 4px solid var(--ink); }
-    .pop-shadow { box-shadow: 8px 8px 0 var(--ink); }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 32px 18px 12px; }
 
-    .halftone {
-      height: 32px;
-      max-width: 64rem;
-      margin: 36px auto;
-      opacity: .4;
-      background-image: radial-gradient(var(--ink) 1.5px, transparent 1.5px);
-      background-size: 10px 10px;
+    /* ─── Top banner pill ─── */
+    .top-banner {
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto 30px;
+      background: var(--blue);
+      border: 4px solid var(--ink);
+      border-radius: 9999px;
+      box-shadow: 6px 6px 0 var(--ink);
+      padding: 13px 34px;
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: clamp(.78rem, 2.6vw, 1.05rem);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--ink);
     }
 
-    main { padding: 28px 16px; max-width: 64rem; margin: 0 auto; }
-    section { max-width: 36rem; margin: 0 auto; text-align: center; }
-
-    /* ─── HERO ─── */
+    /* ─── Hero ─── */
     .eyebrow {
-      display: inline-block;
-      background: var(--pop-yellow);
-      border: 4px solid var(--ink);
-      box-shadow: 8px 8px 0 var(--ink);
-      padding: 8px 20px;
-      transform: rotate(-3deg);
-      margin-bottom: 22px;
-      font-size: .95rem;
-      letter-spacing: .18em;
       font-family: "Archivo Black", Impact, sans-serif;
+      color: var(--pink);
+      font-size: .8rem;
+      letter-spacing: .22em;
       text-transform: uppercase;
+      margin-bottom: 10px;
     }
     h1.title {
-      margin: 0 0 18px;
       font-family: "Archivo Black", Impact, sans-serif;
-      font-size: clamp(2.6rem, 11vw, 6rem);
-      line-height: .9;
+      font-size: clamp(2.9rem, 11vw, 5.6rem);
+      line-height: .92;
       letter-spacing: -.02em;
       text-transform: uppercase;
-      color: var(--pop-red);
-      -webkit-text-stroke: 2px var(--ink);
-      text-shadow: 6px 6px 0 var(--ink), 12px 12px 0 var(--pop-blue);
+      color: var(--ink);
+      margin-bottom: 18px;
     }
-    h1.title .line2 { display: block; font-size: 0.6em; margin-top: 10px; color: #fff; text-shadow: 4px 4px 0 var(--ink), 8px 8px 0 var(--pop-pink); }
+    h1.title .line2 {
+      display: block;
+      color: var(--pink);
+      text-shadow: 5px 5px 0 var(--ink);
+    }
+    .hero-sub {
+      font-size: clamp(1.05rem, 3.4vw, 1.35rem);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 26px;
+      max-width: 34rem;
+    }
+    .hl {
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      padding: 0 6px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      white-space: nowrap;
+      font-weight: 800;
+    }
 
-    .scan-card {
-      display: inline-block;
-      margin-top: 8px;
-      background: #fff;
-      padding: 16px 22px;
-      transform: rotate(2deg);
-      max-width: 28rem;
-    }
-    .scan-card p {
-      margin: 0;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      font-family: "Bebas Neue", "Archivo Black", sans-serif;
-      letter-spacing: .03em;
-      line-height: 1.25;
-    }
-    @media (min-width:768px){ .scan-card p { font-size: 1.4rem; } }
-    .scan-card .accent { color: var(--pop-red); }
-
-    /* LIVE EVENT pill — visible only when event data loads */
+    /* LIVE EVENT pill */
     .event-pill {
       display: none;
       align-items: center;
       gap: 8px;
-      background: var(--pop-blue);
+      background: var(--blue);
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      color: var(--ink);
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: .78rem;
+      letter-spacing: .03em;
+      padding: 7px 15px;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+    }
+    .lc-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--magenta); border: 2px solid var(--ink);
+      animation: pulse 1.3s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+
+    /* ─── Cards ─── */
+    .card {
       border: 4px solid var(--ink);
-      box-shadow: 6px 6px 0 var(--ink);
-      color: #fff;
+      border-radius: 26px;
+      box-shadow: 10px 10px 0 var(--ink);
+      padding: 30px 26px;
+      margin-bottom: 34px;
+    }
+    .card-green { background: var(--green); }
+    .card-blue  { background: var(--blue); }
+
+    .card h2 {
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      line-height: 1.05;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .card .lead { font-size: 1rem; font-weight: 500; margin-bottom: 20px; color: var(--ink); }
+    .pink-shadow { color: var(--pink); text-shadow: 3px 3px 0 var(--ink); }
+
+    /* Bonus pill inside blue card */
+    .bonus-pill {
+      display: inline-block;
+      background: var(--pink);
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      border-radius: 9999px;
+      padding: 7px 18px;
       font-family: "Archivo Black", Impact, sans-serif;
       font-size: .85rem;
-      padding: 8px 16px;
-      margin: 22px auto 12px;
-      transform: rotate(-1deg);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      -webkit-text-stroke: .5px var(--ink);
-    }
-    .event-pill .lc-dot {
-      width: 10px; height: 10px;
-      background: #22c55e;
-      border: 2px solid var(--ink);
-      border-radius: 50%;
-      animation: pulse 1s infinite;
-      flex-shrink: 0;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.3)} }
-
-
-    /* ─── SMS form section ─── */
-    .sms-section { padding: 28px 0 12px; }
-    .sms-section h2 {
-      font-family: "Archivo Black", Impact, sans-serif;
-      text-transform: uppercase;
-      font-size: clamp(1.8rem, 6vw, 2.8rem);
-      color: var(--ink);
-      -webkit-text-stroke: 1px var(--ink);
-      text-shadow: 4px 4px 0 var(--pop-yellow);
-      margin-bottom: 10px;
-      line-height: 1;
-    }
-    .sms-section .sub {
-      font-family: "Bebas Neue", "Archivo Black", sans-serif;
       letter-spacing: .04em;
-      color: var(--ink);
-      font-size: 1rem;
-      margin-bottom: 22px;
       text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 16px;
     }
 
-    /* Form card — JS injects .st-signupform here */
-    .st-signupform {
-      font-family: "Archivo Black", Impact, sans-serif !important;
-      background: var(--pop-pink);
-      border: 4px solid var(--ink);
-      box-shadow: 8px 8px 0 var(--ink);
-      max-width: 440px;
-      padding: 26px;
-      margin: 0 auto;
-      transform: rotate(-1deg);
+    /* ─── SimpleTexting injected form ─── */
+    #form-host .loading-state {
+      text-align: center; padding: 18px; font-weight: 600; color: var(--ink);
     }
-    .st-signupform input[type="text"] {
+    #form-host input[name="phone"] {
       width: 100%;
       background: #fff;
-      border: 4px solid var(--ink);
-      padding: 13px 14px;
-      font-size: 1rem;
-      font-family: "Archivo Black", Impact, sans-serif;
-      margin-bottom: 14px;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      padding: 16px 20px;
+      font-family: "Inter", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
       outline: none;
-      color: var(--ink);
-      letter-spacing: .02em;
     }
-    .st-signupform input[type="text"]:focus { background: var(--pop-yellow); }
-    .st-signupform input[type="submit"] {
+    #form-host input[name="phone"]::placeholder { color: #8a8f9c; font-weight: 500; }
+    #form-host input[name="phone"]:focus { box-shadow: 4px 4px 0 var(--ink); }
+    #form-host input.st-signupform-validation-error { border-color: var(--magenta); }
+
+    #form-host .st-font-caption {
+      display: flex; align-items: flex-start; gap: 9px;
+      margin: 14px 2px 18px;
+      font-size: .8rem; font-weight: 500; line-height: 1.4; color: var(--ink); text-align: left;
+    }
+    #form-host .st-font-caption input[type="checkbox"] {
+      width: 20px; height: 20px; min-width: 20px; margin-top: 1px;
+      accent-color: var(--magenta); cursor: pointer;
+    }
+    #form-host .st-font-caption a { color: var(--ink); text-decoration: underline; }
+
+    #form-host input[type="submit"] {
       width: 100%;
-      background: var(--pop-red);
-      color: #fff;
+      background: var(--pink);
       border: 4px solid var(--ink);
-      box-shadow: 8px 8px 0 var(--ink);
-      padding: 18px 14px;
-      font-size: 1.35rem;
+      border-radius: 16px;
+      box-shadow: 5px 5px 0 var(--ink);
+      padding: 17px 18px;
       font-family: "Archivo Black", Impact, sans-serif;
-      cursor: pointer;
-      margin-top: 14px;
-      letter-spacing: .05em;
+      font-size: clamp(1rem, 4vw, 1.25rem);
       text-transform: uppercase;
-      transition: transform .12s, box-shadow .12s;
-      -webkit-text-stroke: 1.5px var(--ink);
-      transform: rotate(-1deg);
-      line-height: 1;
-    }
-    .st-signupform input[type="submit"]:hover {
-      transform: rotate(-1deg) translate(-2px,-2px);
-      box-shadow: 11px 11px 0 var(--ink);
-    }
-    .st-signupform input[type="submit"]:active {
-      transform: rotate(-1deg) translate(4px,4px);
-      box-shadow: 3px 3px 0 var(--ink);
-    }
-    .st-font-caption {
-      font-size: .75rem;
-      color: var(--ink);
-      line-height: 1.45;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 6px;
-      text-align: left;
-      font-family: "Bebas Neue", sans-serif;
       letter-spacing: .02em;
+      color: #fff;
+      -webkit-text-stroke: .6px var(--ink);
+      cursor: pointer;
+      transition: transform .12s, box-shadow .12s;
     }
-    .st-font-caption input[type="checkbox"] {
-      width: 18px; height: 18px;
-      flex-shrink: 0; margin-top: 2px;
-      accent-color: var(--pop-red);
-    }
-    .st-font-caption a { color: var(--ink); text-decoration: underline; }
-    .st-hidden { display: none; }
-    .st-color-red { color: #fff; background: var(--pop-red); border: 2px solid var(--ink); padding: 4px 8px; font-size: .8rem; text-align: center; margin-top: 4px; font-family: "Bebas Neue", sans-serif; letter-spacing: .05em; }
-    .st-color-red:empty { display: none; padding: 0; border: 0; margin: 0; }
-    .st-signupform-validation-error { background: var(--pop-yellow) !important; }
-    .step2-singleOptIn p {
-      color: var(--ink);
-      font-size: 1.4rem;
-      text-align: center;
+    #form-host input[type="submit"]:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--ink); }
+    #form-host input[type="submit"]:active { transform: translate(3px,3px); box-shadow: 2px 2px 0 var(--ink); }
+
+    #form-host .st-color-red { color: var(--magenta); font-weight: 700; font-size: .85rem; margin-top: 8px; }
+    #form-host .st-hidden { display: none !important; }
+    #form-host .step2-singleOptIn p {
       font-family: "Archivo Black", Impact, sans-serif;
-      text-transform: uppercase;
-      line-height: 1.15;
+      font-size: 1.15rem; text-align: center; color: var(--ink); padding: 16px 4px;
     }
 
-    /* ─── SHARE section ─── */
-    .share-section { padding: 8px 0 16px; }
-    .share-section h3 {
-      font-family: "Archivo Black", Impact, sans-serif;
-      text-transform: uppercase;
-      font-size: clamp(1.6rem, 5.5vw, 2.4rem);
-      color: var(--pop-red);
-      -webkit-text-stroke: 1.5px var(--ink);
-      text-shadow: 4px 4px 0 var(--ink), 8px 8px 0 var(--pop-yellow);
-      margin-bottom: 10px;
-      line-height: 1;
-    }
-    .share-section .share-sub {
-      font-family: "Bebas Neue", "Archivo Black", sans-serif;
-      letter-spacing: .04em;
-      color: var(--ink);
-      font-size: 1rem;
-      margin-bottom: 22px;
-      text-transform: uppercase;
-    }
-    .share-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      max-width: 380px;
-      margin: 0 auto;
-    }
+    /* ─── Share buttons ─── */
+    .share-sub { font-size: 1rem; font-weight: 500; margin-bottom: 20px; color: var(--ink); }
+    .share-buttons { display: flex; flex-direction: column; gap: 14px; }
     .share-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: #fff !important;
-      font-family: "Archivo Black", Impact, sans-serif;
-      font-size: 1.1rem;
-      padding: 16px 22px;
-      text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--magenta);
       border: 4px solid var(--ink);
-      box-shadow: 6px 6px 0 var(--ink);
-      letter-spacing: .04em;
+      border-radius: 16px;
+      box-shadow: 5px 5px 0 var(--ink);
+      padding: 15px 18px;
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: clamp(.95rem, 3.6vw, 1.15rem);
       text-transform: uppercase;
-      transition: transform .15s, box-shadow .15s;
-      -webkit-text-stroke: 1px var(--ink);
+      letter-spacing: .02em;
+      color: #fff;
+      -webkit-text-stroke: .5px var(--ink);
+      text-decoration: none;
+      transition: transform .12s, box-shadow .12s;
     }
     .share-btn:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--ink); }
-    .share-btn:active { transform: translate(3px,3px); box-shadow: 3px 3px 0 var(--ink); }
-    .share-btn:nth-child(1) { transform: rotate(-1deg); }
-    .share-btn:nth-child(1):hover { transform: rotate(-1deg) translate(-2px,-2px); }
-    .share-btn:nth-child(2) { transform: rotate(1deg); }
-    .share-btn:nth-child(2):hover { transform: rotate(1deg) translate(-2px,-2px); }
-    .share-btn:nth-child(3) { transform: rotate(-1deg); }
-    .share-btn:nth-child(3):hover { transform: rotate(-1deg) translate(-2px,-2px); }
+    .share-btn:active { transform: translate(3px,3px); box-shadow: 2px 2px 0 var(--ink); }
+    .share-btn i { font-size: 1.3rem; }
+    .share-btn .arrow { margin-left: auto; }
+    .share-btn[data-pending="1"] { opacity: .55; cursor: progress; pointer-events: none; filter: grayscale(.5); }
 
-    /* IRON RULE #5 — buttons inert while subscribe_target.json loads. NEVER fall back. */
-    .share-btn[data-pending="1"] {
-      opacity: 0.55;
-      cursor: progress;
-      pointer-events: none;
-      filter: grayscale(0.5);
-    }
-    .share-ig { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-    .share-fb { background: #1877f2; }
-    .share-tt { background: var(--ink); }
-    .share-btn i { font-size: 1.4rem; }
-
-    /* ─── GIF section ─── */
-    .gif-section { padding: 16px 0; text-align: center; }
-    .gif-section img {
-      max-width: 360px;
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto 20px;
+    /* ─── Glitter splash ─── */
+    .splash { text-align: center; margin: 6px 0 34px; }
+    .splash img {
+      max-width: 320px; width: 100%; margin: 0 auto 14px;
       border: 4px solid var(--ink);
+      border-radius: 20px;
       box-shadow: 8px 8px 0 var(--ink);
-      transform: rotate(-1deg);
+      transform: rotate(-2deg);
     }
-    .gif-section img:nth-child(2) { transform: rotate(1deg); }
-    .gif-section img:nth-child(3) { transform: rotate(-2deg); }
-    .gif-section img:last-child { margin-bottom: 0; }
+    .sparkles { font-size: 1.6rem; letter-spacing: 6px; }
+
+    /* ─── Steps ─── */
+    .steps {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+      margin: 0 0 32px;
+    }
+    .step {
+      background: #fff;
+      border: 4px solid var(--ink);
+      border-radius: 18px;
+      box-shadow: 6px 6px 0 var(--ink);
+      padding: 18px 8px 16px;
+      text-align: center;
+    }
+    .step .num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--pink); border: 3px solid var(--ink); color: #fff;
+      font-family: "Archivo Black", Impact, sans-serif; font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .step:nth-child(2) .num { background: var(--blue); color: var(--ink); }
+    .step:nth-child(3) .num { background: var(--green); color: var(--ink); }
+    .step .label {
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: clamp(.85rem, 3vw, 1rem); text-transform: uppercase; letter-spacing: .01em;
+    }
+
+    .signoff {
+      text-align: center;
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: clamp(1.4rem, 6vw, 2rem);
+      text-transform: uppercase;
+      color: var(--ink);
+      margin: 4px 0 8px;
+    }
 
     /* ─── Footer ─── */
     footer {
-      text-align: center;
-      padding: 24px 20px 36px;
-      font-size: .75rem;
-      color: var(--ink);
-      font-family: "Bebas Neue", sans-serif;
-      letter-spacing: .04em;
-      text-transform: uppercase;
+      text-align: center; padding: 26px 20px 40px;
+      font-size: .72rem; font-weight: 500; color: var(--ink);
     }
     footer a { color: var(--ink); text-decoration: underline; }
-
-    /* Loading state */
-    .loading-state {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--ink);
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 1rem;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
   </style>
 </head>
 <body>
 
-  <main>
+  <div class="wrap">
 
-    <section>
-      <span class="eyebrow">★&nbsp;FREE EYESHADOW AT CHECKOUT&nbsp;★</span>
+    <span class="top-banner">★&nbsp;Free Eyeshadow · Event Exclusive&nbsp;★</span>
 
-      <h1 class="title">Get Your<span class="line2">Free Eyeshadow!</span></h1>
+    <section class="hero">
+      <div class="eyebrow">✦ You're Here ✦</div>
+      <h1 class="title">Welcome to<span class="line2">Our Event!</span></h1>
+      <p class="hero-sub">Sign up below in <span class="hl">5 seconds</span> and walk inside to grab your <span class="hl">FREE eyeshadow</span>.</p>
 
       <div class="event-pill" id="event-pill">
         <span class="lc-dot"></span>
         <span id="event-pill-text">Loading next event&hellip;</span>
       </div>
-
-      <div class="scan-card pop-border pop-shadow">
-        <p>You're here! Sign up below in <span class="accent">5 seconds</span> and walk inside to claim your <span class="accent">FREE eyeshadow.</span></p>
-      </div>
-
     </section>
 
-    <section class="sms-section" id="sms-section">
-      <h2>🎁 Claim Your Free Eyeshadow</h2>
-      <p class="sub">Enter your phone — we'll text you your voucher</p>
+    <section class="card card-green">
+      <h2>🎁 Claim Your Voucher</h2>
+      <p class="lead">Enter your phone — we'll text your voucher right away.</p>
       <div id="form-host"><div class="loading-state">Loading form&hellip;</div></div>
     </section>
 
-    <div class="halftone"></div>
-
-    <section class="share-section">
-      <h3>📲 Share &amp; Get an Extra Surprise!</h3>
-      <p class="share-sub">Share the event Reel and get a <span style="color:var(--pop-red);-webkit-text-stroke:.5px var(--ink);">FREE Glitter Liner</span> on top of your eyeshadow!</p>
+    <section class="card card-blue">
+      <span class="bonus-pill">📲 Bonus Gift!</span>
+      <h2>Share &amp; Score a <span class="pink-shadow">Free Glitter</span> Liner!</h2>
+      <p class="share-sub">Post our event reel on your socials, show the staff at checkout, and we'll toss in a <span class="hl">FREE Glitter Liner</span> on top of your eyeshadow.</p>
       <div class="share-buttons">
-        <a id="share-ig" class="share-btn share-ig" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> <span class="share-label">Loading event Reel&hellip;</span></a>
-        <a id="share-fb" class="share-btn share-fb" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i> <span class="share-label">Loading event Reel&hellip;</span></a>
-        <a id="share-tt" class="share-btn share-tt" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> <span class="share-label">Loading event Reel&hellip;</span></a>
+        <a id="share-ig" class="share-btn" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> <span class="share-label">Loading event Reel&hellip;</span> <span class="arrow">→</span></a>
+        <a id="share-fb" class="share-btn" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i> <span class="share-label">Loading event Reel&hellip;</span> <span class="arrow">→</span></a>
+        <a id="share-tt" class="share-btn" href="#" data-pending="1" aria-disabled="true" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> <span class="share-label">Loading event Reel&hellip;</span> <span class="arrow">→</span></a>
       </div>
     </section>
 
-    <div class="halftone"></div>
-
-    <section class="gif-section">
-      <img src="https://www.themakeupblowoutsale-group.com/hosted/images/11/2801b060f94f708d0cc3b6d70ef901/Copy-of-Free-Eyeshadow.gif" alt="Free Eyeshadow at the event!" loading="lazy" onerror="this.style.display='none'">
-      <img src="https://www.themakeupblowoutsale-group.com/hosted/images/be/bea10581564cc198d963c7a0c62367/gif-women-bags.gif" alt="Shoppers leaving with bags from The Makeup Blowout Sale" loading="lazy" onerror="this.style.display='none'">
+    <div class="splash">
       <img src="https://events.themakeupblowout.com/_assets/shared/NEW%20GIF.gif" alt="Free Glitter Liner — bonus gift when you share!" loading="lazy" onerror="this.style.display='none'">
-    </section>
+      <div class="sparkles">✨ ⭐ 💖 ⭐ ✨</div>
+    </div>
 
-  </main>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div class="label">Scan</div></div>
+      <div class="step"><div class="num">2</div><div class="label">Sign Up</div></div>
+      <div class="step"><div class="num">3</div><div class="label">Score!</div></div>
+    </div>
+
+    <div class="signoff">See you at the event 💋</div>
+
+  </div>
 
   <footer>
     Copyright &copy; 2026 The Makeup Blowout Sale Group. All Rights Reserved. &nbsp;|&nbsp;
@@ -410,15 +375,15 @@
         +     '<input type="hidden" name="webFormId" value="' + formId + '">'
         +     '<input type="hidden" name="country" value="USA">'
         +     '<div class="required" style="text-align: center">'
-        +       '<input id="phone-' + formId + '" name="phone" type="text" placeholder="Your Phone Number" maxlength="20" data-type="phone" required>'
+        +       '<input id="phone-' + formId + '" name="phone" type="text" placeholder="(555) 123-4567" maxlength="20" data-type="phone" required>'
         +     '</div>'
         +     '<div class="st-font-caption">'
         +       '<input id="terms-agreed-checkbox-' + formId + '" type="checkbox" name="terms-agreed" checked>'
-        +       '<label for="terms-agreed-checkbox-' + formId + '">By subscribing you agree to receive autodialed marketing text messages. Consent not required for purchase. Msg &amp; data rates may apply. Reply STOP to cancel. <a href="' + SIMPLETEXTING_TERMS + '" target="_blank">Terms</a></label>'
+        +       '<label for="terms-agreed-checkbox-' + formId + '">I agree to receive autodialed marketing text messages. Consent not required for purchase. Msg &amp; data rates may apply. Reply STOP to cancel. <a href="' + SIMPLETEXTING_TERMS + '" target="_blank">Terms</a></label>'
         +     '</div>'
         +     '<p class="st-signupform-terms-agreed-error st-color-red st-hidden">Please agree to terms to continue.</p>'
         +     '<div class="st-join-web-form-submit-button-box">'
-        +       '<input type="submit" value="✉️ TEXT ME MY VOUCHER" name="subscribe">'
+        +       '<input type="submit" value="TEXT ME MY VOUCHER →" name="subscribe">'
         +       '<p class="st-signupform-server-error-message st-color-red"></p>'
         +     '</div>'
         +   '</div>'
@@ -515,17 +480,16 @@
 
     function setShare(idSuffix, url){
       // IRON RULE #5: if url is empty/missing, leave the button INERT — do NOT fall back to
-      // the brand profile URL. Better to show a visibly-disabled button than to silently
-      // send users to instagram.com/themakeupblowoutsale/ instead of the event Reel.
+      // the brand profile URL. Better a visibly-disabled button than the wrong (generic) link.
       var a = document.getElementById('share-' + idSuffix);
       if (!a) return;
       if (!url) return;
       a.href = url;
       a.removeAttribute('data-pending');
       a.removeAttribute('aria-disabled');
-      var labels = { 'ig':'SHARE on Instagram', 'fb':'SHARE on Facebook', 'tt':'SHARE on TikTok' };
+      var labels = { 'ig':'Share on Instagram', 'fb':'Share on Facebook', 'tt':'Share on TikTok' };
       var span = a.querySelector('.share-label');
-      if (span) span.textContent = labels[idSuffix] || 'SHARE';
+      if (span) span.textContent = labels[idSuffix] || 'Share';
     }
     function fmtDate(s){
       try {
