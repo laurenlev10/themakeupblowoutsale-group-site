@@ -125,7 +125,7 @@
     }
     .lc-dot {
       width: 10px; height: 10px; border-radius: 50%;
-      background: var(--magenta); border: 2px solid var(--ink);
+      background: var(--green); border: 2px solid var(--ink);
       animation: pulse 1.3s infinite;
     }
     @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
@@ -156,7 +156,7 @@
     /* Bonus pill inside blue card */
     .bonus-pill {
       display: inline-block;
-      background: var(--pink);
+      background: var(--yellow);
       border: 3px solid var(--ink);
       box-shadow: 4px 4px 0 var(--ink);
       border-radius: 9999px;
@@ -166,6 +166,7 @@
       letter-spacing: .04em;
       text-transform: uppercase;
       color: var(--ink);
+      transform: rotate(-3deg);
       margin-bottom: 16px;
     }
 
@@ -250,6 +251,9 @@
     .share-btn i { font-size: 1.3rem; }
     .share-btn .arrow { margin-left: auto; }
     .share-btn[data-pending="1"] { opacity: .55; cursor: progress; pointer-events: none; filter: grayscale(.5); }
+    #share-ig { background: #E63E83; }
+    #share-fb { background: #1877F2; }
+    #share-tt { background: #0A0E1A; }
 
     /* ─── Glitter splash ─── */
     .splash { text-align: center; margin: 6px 0 34px; }
