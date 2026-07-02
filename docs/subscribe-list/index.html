@@ -448,6 +448,15 @@
             form.reset();
             try { if (window.gtag) gtag('event','form_submit',{value:1}); } catch(_){}
           } else if (xhr.status === 418) {
+            var dup=null; try{ dup=JSON.parse(xhr.responseText); }catch(_){}
+            if (dup && (dup.code === DUP_PHONE || dup.code === DUP_EMAIL)) {
+              // Already subscribed — that's a success for the visitor, show the thank-you step
+              form.querySelector('.step1-form').classList.add('st-hidden');
+              form.querySelector('.step2-singleOptIn').classList.remove('st-hidden');
+              form.reset();
+              try { if (window.gtag) gtag('event','form_submit',{value:1,already_subscribed:1}); } catch(_){}
+              return;
+            }
             var v = parseErr(xhr.responseText);
             if (v.fieldName) {
               var fld = form.querySelector('input[name="' + v.fieldName + '"]');
