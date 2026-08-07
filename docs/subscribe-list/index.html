@@ -10,6 +10,17 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.themakeupblowoutsale-group.com/subscribe-list">
 
+  <!-- GA4 (same property as the ad landing pages) so ON-SITE sign-ups from this door-QR page
+       are counted as their own source alongside ads/tiktok. The form_submit events below fire
+       source:'onsite'; the per-source weekly report splits by hostName/pagePath + source. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JM9XG0ZGJF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JM9XG0ZGJF', { page_path: '/subscribe-list' });
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -451,7 +462,7 @@
             form.querySelector('.step1-form').classList.add('st-hidden');
             form.querySelector('.step2-singleOptIn').classList.remove('st-hidden');
             form.reset();
-            try { if (window.gtag) gtag('event','form_submit',{value:1}); } catch(_){}
+            try { if (window.gtag) gtag('event','form_submit',{value:1,source:'onsite'}); } catch(_){}
           } else if (xhr.status === 418) {
             var dup=null; try{ dup=JSON.parse(xhr.responseText); }catch(_){}
             if (dup && (dup.code === DUP_PHONE || dup.code === DUP_EMAIL)) {
@@ -459,7 +470,7 @@
               form.querySelector('.step1-form').classList.add('st-hidden');
               form.querySelector('.step2-singleOptIn').classList.remove('st-hidden');
               form.reset();
-              try { if (window.gtag) gtag('event','form_submit',{value:1,already_subscribed:1}); } catch(_){}
+              try { if (window.gtag) gtag('event','form_submit',{value:1,already_subscribed:1,source:'onsite'}); } catch(_){}
               return;
             }
             var v = parseErr(xhr.responseText);
