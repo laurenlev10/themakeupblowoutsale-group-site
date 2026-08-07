@@ -368,7 +368,12 @@
 
   <script>
   (function(){
-    var STATE_URL = 'https://dashboard.themakeupblowout.com/state/subscribe_target.json';
+    // PRIMARY source = the public, auto-updated events feed (GitHub Pages, CORS:*, always fresh).
+    // The old private-repo URLs (raw.githubusercontent hub-data / dashboard.themakeupblowout.com)
+    // broke the share buttons when the hub repo went private (2026-08). This feed is public and
+    // never behind Cloudflare Access, so it can't regress the same way. See fix note 2026-08-07.
+    var EVENTS_FEED_URL = 'https://events.themakeupblowout.com/upcoming-events.json';
+    var STATE_URL = 'https://dashboard.themakeupblowout.com/state/subscribe_target.json'; // single-object fallback
     var FALLBACK_FORM_ID = '6930ecf65c4c2f0a2f7afe58';
     var SIMPLETEXTING_TERMS = 'https://app2.simpletexting.com/web-forms/terms/654d65258f51cb55a9016540';
 
@@ -528,14 +533,68 @@
       setShare('fb', s.fb_url);
       setShare('tt', s.tiktok_url);
     }
-    function loadState(){
+    // Today's date (visitor-local — they're at the event, so this matches the event's local day).
+    function todayISO(){
+      var d = new Date();
+      var m = ('0' + (d.getMonth() + 1)).slice(-2);
+      var day = ('0' + d.getDate()).slice(-2);
+      return d.getFullYear() + '-' + m + '-' + day;
+    }
+    // Pick the event that is live today (start<=today<=end), else the next upcoming, else the most recent.
+    function pickCurrentEvent(events){
+      if (!events || !events.length) return null;
+      var today = todayISO();
+      var live = [], upcoming = [], all = [];
+      for (var i = 0; i < events.length; i++){
+        var e = events[i];
+        if (!e || !e.start_date) continue;
+        all.push(e);
+        if (e.end_date && e.start_date <= today && today <= e.end_date) live.push(e);
+        else if (e.start_date >= today) upcoming.push(e);
+      }
+      if (live.length) return live[0];
+      upcoming.sort(function(a,b){ return a.start_date < b.start_date ? -1 : 1; });
+      if (upcoming.length) return upcoming[0];
+      all.sort(function(a,b){ return a.start_date < b.start_date ? 1 : -1; });
+      return all.length ? all[0] : null;
+    }
+    // Map an events-feed event to the shape applyState() expects.
+    // NOTE: the feed uses `ig_url`; applyState reads `ig_reel_url` (prefers the New Reel already baked in).
+    function mapEvent(e){
+      return {
+        city: e.city, state: e.state,
+        start_date: e.start_date, end_date: e.end_date,
+        form_id: e.form_id,
+        ig_reel_url: e.ig_reel_url || e.ig_url,
+        fb_url: e.fb_url,
+        tiktok_url: e.tiktok_url
+      };
+    }
+    // Fallback: the single-object state file (also public + CORS:*).
+    function loadFromDashboard(){
       var url = STATE_URL + '?t=' + Math.floor(Date.now() / 60000);
       fetch(url, { cache: 'no-cache' })
         .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(applyState)
         .catch(function(err){
-          console.warn('subscribe_target.json fetch failed:', err);
+          console.warn('subscribe target fallback failed:', err);
           buildForm(FALLBACK_FORM_ID);
+        });
+    }
+    function loadState(){
+      // PRIMARY: public, auto-updated events feed → pick the current/next event client-side.
+      var url = EVENTS_FEED_URL + '?t=' + Math.floor(Date.now() / 60000);
+      fetch(url, { cache: 'no-cache' })
+        .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function(d){
+          var events = (d && d.events) ? d.events : (Array.isArray(d) ? d : []);
+          var ev = pickCurrentEvent(events);
+          if (!ev) throw new Error('no current event in feed');
+          applyState(mapEvent(ev));
+        })
+        .catch(function(err){
+          console.warn('events feed failed, trying fallback:', err);
+          loadFromDashboard();
         });
     }
     if (document.readyState === 'loading') {
