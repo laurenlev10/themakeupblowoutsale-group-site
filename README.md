@@ -29,7 +29,7 @@ If both fetches fail, the form falls back to the most-recent known good `form_id
 hard-coded in the page.
 
 > 🛑 Corrected 2026-08-26. This paragraph used to name
-> `https://laurenlev10.github.io/lauren-agent-hub-data/state/subscribe_target.json`.
+> `https://laurenlev10.github.io/lauren-agent-hub-data/state/subscribe_target.json`. <!-- DEAD-URL — quoted to say what must NOT come back, not to be fetched -->
 > That URL died in 2026-08 when `lauren-agent-hub-data` went private, which broke the
 > share buttons; the page was moved to the public events feed on 2026-08-07 and the
 > README was never updated. Documentation that names a dead address is how the next
